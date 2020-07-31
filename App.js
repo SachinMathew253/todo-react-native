@@ -9,14 +9,16 @@ export default function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false)
   
   if(firebase.apps.length === 0){
+    /* add your firebase app auth details here */
+    
     var firebaseConfig = {
-      apiKey: "AIzaSyCB2TP9dGmVRg8hAv-_Us73R5iDR-4FvKI",
-      authDomain: "rn-masterclass-todo.firebaseapp.com",
-      databaseURL: "https://rn-masterclass-todo.firebaseio.com",
-      projectId: "rn-masterclass-todo",
-      storageBucket: "rn-masterclass-todo.appspot.com",
-      messagingSenderId: "635976787234",
-      appId: "1:635976787234:web:43d9006c80a66c812ef17b"
+      apiKey: "",
+      authDomain: "",
+      databaseURL: "",
+      projectId: "",
+      storageBucket: "",
+      messagingSenderId: "",
+      appId: ""
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
