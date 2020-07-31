@@ -32,17 +32,32 @@ export default function App() {
 
   if(userLoggedIn) {
     return (
-      <View>
+      <View style={styles.container}>
         <NotesScreenComponent/>
-        {/* <LoginScreenComponent/> */}
       </View>
     );
   } else {
     return (
-      <View>
-        {/* <NotesScreenComponent/> */}
+      <View style={styles.container}>
         <LoginScreenComponent/>
       </View>
     );
   }
+
+
+  return (
+    <View style={styles.container}>
+      {/* <NotesScreenComponent/> */}
+      <LoginScreenComponent/>
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});

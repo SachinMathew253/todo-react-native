@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import  {Text, FlatList, View, StyleSheet, TextInput}  from 'react-native';
+import  {Text, FlatList, View, StyleSheet, TextInput, Button}  from 'react-native';
 import SingleNoteSummaryComponent from './SingleNoteSummaryComponent';
 import CreateNoteComponent from './CreateNoteComponent';
-
+import firebase from 'firebase'
 // a react component is nothing but a javascript function
 
 const NotesScreenComponent = () => {
@@ -23,13 +23,23 @@ const NotesScreenComponent = () => {
     // item , index
 
     const addNewNote = (text) => {
-        setData([...data, {"text": text, "date": new Date()}])
+        if(text.length > 0){
+            setData([{"text": text, "date": new Date()}, ...data])
+        }
+        
 
         // A= ['a', 'b', 'c', 'd'] -> ...A -> 'a', 'b', 'c', 'd'
     }
 
 
     return <View style={styles.viewProperties}>
+
+        <Button 
+            title={"Log Out"}
+            onPress={() => firebase.auth().signOut()}
+        />
+
+
         <CreateNoteComponent onCreateButtonPress={
             (text) => addNewNote(text) 
         }/>
@@ -86,52 +96,3 @@ const randomBackground = () => {
 }
 
 export default NotesScreenComponent;
-
-
-// ['rgb(1,2,3)', ]
-// Choose random element from list in js
-
-// Javascript object JSON - JavaScript Object Notation
-
-
-// {
-//     'name': 'Naman',
-//     'age': 'blah',
-//     'hobby': 'meh',
-//     'friends': [
-//         "A", "B", "C"
-//     ],
-//     'scbool' : {
-//         'name': 'BHS',
-//         'location': 'Rajasthan'
-//     },
-//     'fav_city': 'abc'
-
-// }
-
-
-
-// If we have to write JS in JSX, we need to surround JS code in {}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
